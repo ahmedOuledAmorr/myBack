@@ -18,7 +18,7 @@ app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/uploads", express.static("uploads"));
 // Scheduler to deactivate products at 10:00 PM daily
-cron.schedule("8 19 * * *", async () => {
+cron.schedule("49 2 * * *", async () => {
   try {
     console.log(
       "Running the scheduled task to deactivate products at 10:00 PM"
@@ -30,16 +30,16 @@ cron.schedule("8 19 * * *", async () => {
   }
 });
 
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 // cron.schedule("* * * * *", async () => {
 //   const now = new Date();
 //   console.log(
 //     `Running the scheduled task. Current time: ${now.toLocaleTimeString()}`
 //   );
 // });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
 /*
 const express = require('express');
